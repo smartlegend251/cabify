@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>autobooktype</title>
+
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="../static/css/responsive.css" rel="stylesheet" />
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              CABIFY
+            </span>
+          </a>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{url_for('contact')}}">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('feedback')}}">Feedback</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- FEEDBACK section -->
+
+  <section class="contact_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Select the type of Booking<br>
+          
+        </h2>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-5  offset-md-1">
+          <div class="contact_form">
+            <h4>
+              <!-- Get In touch -->
+            </h4>
+
+            <li><a class="whitecolor" href="{{url_for('advancebooking')}}">Advance Booking</a></li> <br>
+            <li><a class="whitecolor" href="{{url_for('currentbooking')}}">Current Booking</a></li> <br>
+            <li><a href="{{url_for('sharetaxi')}}" class="whitecolor">Shared Taxi Booking</a></li> <br>
+           
+          </div>
+
+          <style> 
+            .whitecolor{
+            color: white;
+            }
+            li{
+              color: white;
+            }
+            </style>
+
+        </div>
+                 </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end contact section -->
+            </div>
+          </form>
+        </div>
+       
+       
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <div class="container">
+      <p>
+        &copy; all rights are reserved by CABIFY
+      </p>
+    </div>
+  </section>
+</body>
+
+</html>

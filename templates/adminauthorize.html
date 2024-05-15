@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drivers Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+    .container {
+      margin: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    td{
+      text-align: center;
+    }
+    .button-container {
+      display: flex;
+      justify-content: space-around;
+    }
+    .authorize-btn, .deauthorize-btn {
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .authorize-btn {
+      background-color: #4CAF50;
+      color: #fff;
+    }
+    .deauthorize-btn {
+      background-color: #F44336;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Drivers Details</h1>
+  </header>
+  <div class="container">
+    <table >
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Gender</th>
+          <th>Address</th>
+          <th>Experience</th>
+          <th>Age</th>
+          <th>Driving License</th>
+          <th>Aadhar</th>
+          <th>Authorization</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for x in data%}
+        <tr>
+          <td>{{x[0]}}</td>
+          <td>{{x[1]}}</td>
+          <td>{{x[3]}}</td>
+          <td>{{x[5]}}</td>
+          <td>{{x[6]}}</td>
+          <td>{{x[7]}}</td>
+          <td>{{x[11]}}</td>
+          <td>{{x[9]}}</td>
+          <td>{{x[10]}}</td>
+          
+          <td class="button-container">
+            <a href="{{url_for('adc',val=x[0])}}"> <button class="authorize-btn">Authorize</button></a>
+           <a href="{{url_for('adr',val=x[0])}}"><button class="deauthorize-btn">De-Authorize</button></a>
+          </td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

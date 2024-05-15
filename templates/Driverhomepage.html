@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="/static/driverpagelayout.css">
+</head>
+<body class="homepage">
+
+    <div class="topbar">
+        <h1><i class="fa-solid fa-taxi"></i> CABIFY</h1>
+      </div>
+
+      <style>
+        
+      </style>
+      
+  <div class="sidebar" id="sidebar">
+    <ul>
+      <br>
+      <a href="/driverhomepage"> <li class="active">Home</li></a>
+      <a href="/driverprofile"><li>Profile</li></a>
+      <a href="/RideHistoryPage"><li>Ride History</li></a>
+      <a href="/userdetails"><li>User Details</li></a>
+      <a href="/driversettings"><li>Settings</li></a>
+      <a href="/driverlogout"><li>Logout</li></a>
+  </ul>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+ 
+
+
+ 
+  <!-- <div class="container">
+  <h2> toggle switch</h2>
+  <label class="switch">
+    <input type="checkbox" checked>
+    <span class="slider"></span>
+  </label>
+</div> -->
+
+
+  <style>
+    
+.toggle-container {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  left:25px ;
+  top: -100px;
+}
+
+.toggle-input {
+  display: none;
+}
+
+.toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ddd;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-input:checked + .toggle-label {
+  background-color: #d6bb06; /* Change this color to the desired "ON" state color */
+}
+
+.toggle-label::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.toggle-input:checked + .toggle-label::before {
+  transform: translateX(30px);
+}
+
+  </style>
+  
+  </div>
+  <style>
+    .locate{
+        position: fixed;
+        top: 37%;
+        left: 7%;
+        justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+
+    }
+    .locate button{
+      padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            width: 100px;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+    }
+
+     button:hover {
+            background-color: #45a049;
+        }
+  </style>
+  
+  <!-- <div class="menu-toggle" id="menu-toggle"><p style="padding: 0%;margin: 0%;" > <i class="fa-solid fa-bars"></i> Info</p> </div> -->
+  
+  
+  
+  
+  <div class="locate">
+    
+   
+
+<div id="authfirst" style="align-items: center; margin-left: 450px;">
+  <a href="/driverform"> <button  style=" width:150px ;">Authorised First</button></a>
+</div>
+
+ {%for y in driver%}
+ <input type="text"  id="waitingauth" value="{{y[2]}}" hidden>
+ <input type="text" id="signal" value="{{y[3]}}" hidden>
+
+{%endfor%}
+    <div class="toggle-container" id="toggleauth">
+      <input type="checkbox" id="toggle" class="toggle-input"/>
+      <label for="toggle" class="toggle-label"></label>
+    </div>
+
+    <div id="message" style="margin-left: 350px; text-align: center;" >
+      <h1>Thank you For Submitting Your Form</h1>
+      <h2>Please Wait for Authorization</h2>
+    </div>
+
+
+
+  <script>
+    const signal = document.getElementById('signal').value;
+    const toggleauth = document.getElementById('toggleauth');
+    const authfirst = document.getElementById('authfirst');
+    const message = document.getElementById('message');
+
+    const waitingauth = document.getElementById('waitingauth').value;
+
+    if (signal == 1)
+      {
+        toggleauth.style.display='block'
+        authfirst.style.display ='none'
+        message.style.display ='none'
+
+      }
+      else
+      {
+        toggleauth.style.display='none'
+        if (waitingauth == 1){
+        authfirst.style.display ='none'
+        message.style.display ='block'
+        
+      }else {
+        authfirst.style.display ='block'
+        message.style.display ='none'
+        }
+      }
+
+  </script>
+    
+    <button class="loc" id="adv" onclick="adv()">Advance</button><br>
+    <button class="loc" id="cur" onclick="cur()">Current</button><br>
+    <button class="loc" id="shr" onclick="shr()">Share  </button>
+    </div>
+    
+      <!-- <button onclick="toggleReadOnly()">On</button> -->
+      <div class="content" id="refreshedDiv">
+
+        <!-- <div id="readOnlyDiv" class="readonly">      -->
+
+
+     <!-- <h1>Bookings</h1> -->
+     <div id="advancepage" >
+  <table id="rideRequests">
+    <h3>Advance</h3>
+    <tr>
+      <th>Name</th>
+      <th>Pickup Location</th>
+      <th>Destination</th>
+      <th>Contact</th>
+      <th>Action</th>
+    </tr>
+    {%for x in advance %}
+    <tr>
+
+      
+      <td>{{x[3]}}</td>
+      <td>{{x[5]}}</td>
+      <td>{{x[6]}}</td>
+      <td>{{x[4]}}</td>
+    
+      <td>
+        <!-- <a href="/driveraccept/{{x[2]}}"> <button class="accept-btn" >Accept</button></a> -->
+        <a href="{{url_for('adaccept', data= x.2,val='yes')}}" style="background-color:rgb(92, 7, 230);" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure You Want to Accept This Ride?')"> Accept</a>
+        <a href="{{url_for('adaccept', data= x.2,val='no')}}" style="background-color:rgb(92, 7, 230);" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure For Delete?')"> Delete</a>
+
+        <!-- <button class="reject-btn" onclick="rejectRequest(this)">Reject</button> -->
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+
+
+<div id="currentpage" >
+  <table id="rideRequests">
+    <h3>Current</h3>
+    <tr>
+      <th>Name</th>
+      <th>Pickup Location</th>
+      <th>Destination</th>
+      <th>Contact</th>
+      <th>Action</th>
+    </tr>
+    {%for x in current %}
+    <tr>
+
+      
+      <td>{{x[4]}}</td>
+      <td>{{x[6]}}</td>
+      <td>{{x[7]}}</td>
+      <td>{{x[5]}}</td>
+    
+      <td>
+        <a href="{{url_for('cuaccept', data= x.2,val='yes')}}" style="background-color:rgb(92, 7, 230);" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure You Want to Accept This Ride?')"> Accept</a>
+        <a href="{{url_for('cuaccept', data= x.2,val='no')}}" style="background-color:rgb(92, 7, 230);" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure For Delete?')"> Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+    
+  </table>
+</div>
+
+
+
+
+<div id="sharepage" >
+<table id="rideRequests">
+  <h3>Share</h3>
+<tr>
+ <th>Name</th>
+ <th>Pickup Location</th>
+ <th>Destination</th>
+ <th>Contact</th>
+ <th>Action</th>
+</tr>
+{%for x in share %}
+<tr>
+
+  
+  <td>{{x[3]}}</td>
+  <td>{{x[5]}}</td>
+  <td>{{x[6]}}</td>
+  <td>{{x[4]}}</td>
+
+  <td>
+    <a href="{{url_for('shaccept', data= x.2,val='yes')}}" style="background-color:rgb(92, 7, 230);" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure You Want to Accept This Ride?')"> Accept</a>
+    <a href="{{url_for('shaccept', data= x.2,val='no')}}" style="background-color:rgb(92, 7, 230);" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure For Delete?')"> Delete</a> 
+  </td>
+</tr>
+{% endfor %}
+
+</table>
+</div>
+</div>
+<script>
+ var advance = document.getElementById("advancepage");
+ var current = document.getElementById("currentpage");
+ var share = document.getElementById("sharepage");
+
+
+function adv()
+{
+advance.style.display ='block'
+current.style.display ='none'
+share.style.display ='none'
+}
+
+function cur()
+{
+  advance.style.display ='none'
+current.style.display ='block'
+share.style.display ='none'
+}
+function shr()
+{
+  advance.style.display ='none'
+current.style.display ='none'
+share.style.display ='block'
+  
+}
+
+
+
+
+</script>
+
+
+  <style>
+
+    #sharepage,#currentpage{
+      display: none;
+    }
+    /* body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    } */
+    
+    h1 {
+      text-align: center;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+    }
+    
+    .accept-btn, .reject-btn {
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    
+    .accept-btn {
+      background-color: #dff0d8;
+      color: #3c763d;
+      border: none;
+    }
+    
+    .reject-btn {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: none;
+    }
+
+</style>
+  </div>
+  <script>
+    const toggle = document.getElementById('toggle');
+    const content = document.getElementById('refreshedDiv');
+    const adva = document.getElementById('adv')
+    const curr = document.getElementById('cur')
+    const shrr = document.getElementById('shr')
+    content.style.display='none';
+            adva.style.display='none';
+            curr.style.display='none';
+            shrr.style.display='none';
+        
+        toggle.addEventListener('change', () => {
+          // Add your custom logic here when the toggle button state changes
+          if (toggle.checked) {
+            content.style.display='block';
+            adva.style.display='block';
+            curr.style.display='block';
+            shrr.style.display='block';
+          } else {
+            // console.log('Toggle is OFF');
+            content.style.display='none';
+            adva.style.display='none';
+            curr.style.display='none';
+            shrr.style.display='none';
+          }
+        });
+       
+        function refreshDiv() {
+            // Use jQuery AJAX to fetch new content
+            $.ajax({
+                url: 'your_data_source_url', // Replace this with your data source URL to fetch new content
+                method: 'GET',
+                dataType: 'html',
+                success: function (data) {
+                    // Update the content of the 'refreshedDiv' with the fetched data
+                    $('#refreshedDiv').html(data);
+                },
+                error: function (xhr, status, error) {
+                    console.log('Error fetching data:', error);
+                }
+            });
+        }
+    
+        // Set the interval for refreshing the div (in milliseconds)
+        var refreshInterval = 5000; // 5 seconds
+    
+        // Automatically refresh the div after the specified interval
+        setInterval(refreshDiv, refreshInterval);
+    </script>
+  <script src="static/js/driverpagelayout.js">
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+    padding: 30;
+    background: url(/static/driver\(3\).png);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+    width:  280px;
+    /* height: 1400px; */
+    right: 50;
+    left: 50%;
+    padding: 400px 20px;
+    top: 30%;      
+}
+
+.table{
+    width:  440px;
+    height: 400px;
+    background: darkgoldenrod;
+    color: black;
+    /* top: 40%;
+    left: 62%; */
+    position: absolute;
+   transform: translate(-40%,-40%);
+    box-sizing: border-box;
+    padding: 40px 65px;
+    opacity: 0.9; 
+
+}

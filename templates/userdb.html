@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>user dashboard</title>
+
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="../static/css/responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="">
+            <span style="font-size: medium;">
+              Hi, {{name}}!
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <!-- <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a> -->
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="useracc.html"> My Account</a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('mybookings')}}"> My Bookings </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('service')}}"> Service</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('availability')}}"> Availability </a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('contact')}}">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('aboutpage')}}"> About </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('feedback')}}"> Feedback</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/userlogout">Log out</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class=" slider_section ">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-7 ">
+            <div class="box">
+              <div class="detail-box">
+                <h4>
+                  Welcome to
+                </h4>
+                <h1>
+                  CABIFY
+                </h1>
+              </div>
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+
+                    <div class="img-box">
+                      <img src="../static/images/slider-img.png" alt="">
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="img-box">
+                      <img src="../static/images/slider-img.png" alt="">
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="img-box">
+                      <img src="../static/images/slider-img.png" alt="">
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="img-box">
+                      <img src="../static/images/slider-img.png" alt="">
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="img-box">
+                      <img src="../static/images/slider-img.png" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="btn-box">
+                <a href="{{url_for('moreabout')}}" class="btn-1">
+                  Read More
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-5 ">
+            <div class="slider_form">
+              <h4>
+                Get A Taxi Now <br>
+                As comfortable As You Are.
+                <a href="{{url_for('booktype')}}">book now</a>
+                <!-- <a href="{{url_for('moreabout')}}"><button type="submit">Book Now</button></a> -->
+              </h4>
+              <!-- <img src="../static/images/quote.png" alt=""> -->
+              <!-- <h2>As comfortable as you are.</h2> -->
+              <!-- <center><button type="submit">Book Now</button></center> -->
+              <!-- <button type="submit">Book Now</button> -->
+            <!-- <form action="">
+                <input type="text" placeholder="Car Type">
+                <input type="text" placeholder="Pick Up Location">
+                <input type="text" placeholder="Drop Location">
+                <div class="btm_input">
+                  <input type="text" placeholder="Phone Number">
+                  <input type="submit"><button>Book Now</button>
+                </div>
+              </form> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <!-- end slider section -->
+  </div>
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4 col-md-5 offset-lg-2 offset-md-1">
+          <div class="detail-box">
+            <h2>
+              About <br>
+              Taxi Company
+            </h2>
+            <p>
+              Welcome to CABIFY, your trusted transportation partner in Bangalore. We pride ourselves on providing reliable, efficient, and customer-centric taxi services...
+            </p>
+            <a href="{{url_for('moreabout')}}">
+              Read More
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="../static/images/about-img.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- service section -->
+
+  <section class="service_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Our <br>
+          Taxi Services
+        </h2>
+      </div>
+      <div class="service_container">
+        <div class="box">
+          <div class="img-box">
+            <img src="../static/images/cb.png" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Current Booking
+            </h5>
+            <p>
+              In today's fast-paced wo...
+            </p>
+            <a href="{{url_for('currentbookingreadmore')}}">
+              Read More
+            </a>
+          </div>
+        </div>
+
+
+
+        <div class="box">
+          <div class="img-box">
+            <img src="../static/images/ab1.png" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Advance Booking
+            </h5>
+            <p>
+              In today's fast-paced wo...
+            </p>
+            <a href="{{url_for('advancebookingreadmore')}}">
+              Read More
+            </a>
+          </div>
+        </div>
+
+
+
+
+        <div class="box">
+          <div class="img-box">
+            <img src="../static/images/stb.png" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Shared Taxi Booking
+            </h5>
+            <p>
+              In recent years, shared tax...
+            </p>
+            <a href="{{url_for('sharetaxireadmore')}}">
+              Read More
+            </a>
+          </div>
+        </div>
+
+
+
+
+        <div class="box">
+          <div class="img-box">
+            <img src="../static/images/delivery-man.png" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Private Drivers
+            </h5>
+            <p>
+              about private drivers
+            </p>
+            <a href="{{url_for('privatedriverreadmore')}}">
+              Read More
+            </a>
+          </div>
+        </div>
+        <!-- <div class="box">
+          <div class="img-box">
+            <img src="../static/images/backpack.png" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              advance booking
+            </h5>
+            <p>
+              Lorem ipsum dolor sit ame
+            </p>
+            <a href="">
+              Read More
+            </a>
+          </div>
+        </div> -->
+
+        <!-- <div class="box">
+          <div class="img-box">
+            <img src="../static/images/about-img.png" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              shared taxi booking
+            </h5>
+            <p>
+              currentbooking
+               read more
+            </p>
+            <a href="">
+              book now
+            </a>
+          </div>
+        </div> -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- end service section -->
+
+
+
+  <!-- contact section -->
+
+  <section class="contact_section layout_padding-bottom">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Any Problems <br>
+          Any Questions
+        </h2>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-5  offset-md-1">
+          <div class="contact_form">
+            <h4>
+              Get In touch
+            </h4>
+            <form action="">
+              <input type="text" placeholder="Name">
+              <input type="text" placeholder="Phone Number">
+              <input type="text" placeholder="Message" class="message_input">
+              <button>Send</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6 px-0">
+          <div class="img-box">
+            <img src="../static/images/contact-img.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end contact section -->
+
+
+
+
+
+  <!-- why section -->
+
+  <section class="why_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Why <br>
+          Choose Us
+        </h2>
+      </div>
+      <div class="why_container">
+        <div class="box">
+          <div class="img-box">
+            <!-- <img src="../static/images/ab1.png" alt=""> -->
+            <!-- <img src="../static/images/delivery-man-white.png" alt="" class="img-1">
+            <img src="../static/images/delivery-man-black.png" alt="" class="img-2"> -->
+          </div>
+          <div class="detail-box">
+            <h5>
+              Eco Friendly
+            </h5>
+            <p>CABIFY that promote shared taxi services can contribute to reducing 
+              carbon emissions and promoting eco-friendly transportation options. By 
+              optimizing routes and maximizing passenger capacity, shared taxis can help
+               decrease the number of vehicles on the road, reducing traffic congestion
+                and air pollution.
+            </p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="img-box">
+            <!-- <img src="../static/images/delivery-man-white.png" alt="" class="img-1">
+            <img src="../static/images/delivery-man-black.png" alt="" class="img-2"> -->
+          </div>
+          <div class="detail-box">
+            <h5>
+              Best Service
+            </h5>
+            <p>CABIFY systems ensure that passengers receive top-quality service by 
+              employing professional drivers, monitoring driver behavior, and maintaining
+               a fleet of well-maintained vehicles, resulting in a reliable and 
+               customer-centric transportation experience. 
+            </p>
+          </div>
+        </div>
+
+
+        <div class="box">
+          <div class="img-box">
+            <!-- <img src="../static/images/delivery-man-white.png" alt="" class="img-1">
+            <img src="../static/images/delivery-man-black.png" alt="" class="img-2"> -->
+          </div>
+          <div class="detail-box">
+            <h5>
+              Time Saving
+            </h5>
+            <p>The CABIFY service allows its users to book a taxi at 
+              its own comfort zone and with efficient dispatching 
+              algorithms and real-time tracking, taxi management 
+              systems minimize waiting time for passengers, enabling quick and 
+              convenient pickups, reducing travel time, and enhancing overall efficiency
+               for both passengers and drivers.
+            </p>
+          </div>
+        </div>
+        <br>
+
+
+        <div class="box">
+          <div class="img-box">
+            <!-- <img src="../static/images/delivery-man-white.png" alt="" class="img-1">
+            <img src="../static/images/delivery-man-black.png" alt="" class="img-2"> -->
+          </div>
+          <div class="detail-box">
+            <h5>
+              Comfort and Luxury
+            </h5>
+            <p>CABIFY taxi management systems offer a range of vehicles 
+              to cater to diverse customer preferences, providing 
+              comfortable and luxurious rides. Passengers can enjoy amenities
+               like air conditioning and can choose the level of comfort the desired
+               insuring a pleasant and enjoyable travel experience.
+            </p>
+          </div>
+        </div>
+          <br>
+
+
+        <div class="box">
+          <div class="img-box">
+            <!-- <img src="../static/images/shield-white.png" alt="" class="img-1">
+            <img src="../static/images/shield-black.png" alt="" class="img-2"> -->
+          </div>
+          <div class="detail-box">
+            <h5>
+              Enhance Social Interactions
+            </h5>
+            <p>
+              CABIFY provides a unique oppotunity for social interaction. This helps in connect with different passengers who are often knowledgable about local area. This can lead to 
+              engaging conversation,sharing of local information and creating a sense of community during the ride.
+            </p>
+          </div>
+        </div>
+        <br>
+
+
+
+        <div class="box">
+          <div class="img-box">
+            <!-- <img src="../static/images/delivery-man-white.png" alt="" class="img-1">
+            <img src="../static/images/delivery-man-black.png" alt="" class="img-2"> -->
+          </div>
+          <div class="detail-box">
+            <h5>
+              Experienced Drivers
+            </h5>
+            <p>
+              CABIFY managment system prioritize hiring experienced drivers who possess
+              excellent driving skills,knowledge of traffic patterns,and familiarity with different
+              routes. This expertise ensures passenger safety,efficiant navigation,and a smooth ride,even in challenging
+            </p>
+          </div>
+        </div>
+        <br>
+
+
+
+
+
+        <div class="box">
+          <div class="img-box">
+            <!-- <img src="../static/images/repairing-service-white.png" alt="" class="img-1">
+            <img src="../static/images/repairing-service-black.png" alt="" class="img-2"> -->
+          </div>
+          <div class="detail-box">
+            <h5>
+              24x7 support
+            </h5>
+            <p>
+              CABIFY system opperate round clock,providing 24 hour service to passenger.
+              This availability ensures that individuals can access transportation at any time,
+              wheather it's for early morning flights,late-night shifts,or emergency situations,
+              offering convenience and peace of mind.
+            
+            
+            </p>
+          </div>
+        </div>
+        <br>
+
+        <div class="box">
+          <div class="img-box">
+            <!-- <img src="../static/images/delivery-man-white.png" alt="" class="img-1">
+            <img src="../static/images/delivery-man-black.png" alt="" class="img-2"> -->
+          </div>
+          <div class="detail-box">
+            <h5>
+              Availability
+            </h5>
+            <p>
+              With CABIFY,passengers can get varities of cabs. this increase avialability ensures a higher chance
+              of finding a taxi when needed,reducing waiting times and providing a reliable transportation
+              option,especially in busy urban areas.
+            </p>
+          </div>
+        </div>
+        <br>
+
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- end why section -->
+
+
+
+
+
+  <!-- <section class="contact_section layout_padding-bottom"> -->
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          FUTURE <br>
+          ENHANCEMENT
+        </h2>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-5  offset-md-1">
+          <div class="contact_form">
+            <!-- <h4>
+              Get In touch
+            </h4> -->
+            <form action="">
+              <!-- <input type="text" placeholder="Name">
+              <input type="text" placeholder="Phone Number">
+              <input type="text" placeholder="Message" class="message_input">
+              <button>Send</button> -->
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6 px-0">
+          <div class="img-box">
+            <img src="../static/images/future-enhancement.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- info section -->
+
+  <section class="info_section layout_padding-top layout_padding2-bottom">
+    <div class="container">
+      <div class="box">
+        <div class="info_form">
+          <!-- <h4>
+            Subscribe Our Newsletter
+          </h4> -->
+          <!-- <form action=""> -->
+            <!-- <input type="text" placeholder="Enter your email"> -->
+            <!-- <div class="d-flex justify-content-end"> -->
+              <!-- <button>
+
+              </button> -->
+            </div>
+          </form>
+        </div>
+        <div class="info_links">
+          <ul>
+            <li class=" ">
+              
+              <a class="" href="{{url_for('aboutpage')}}"> About</a>
+            </li>
+            <li class="">
+              <a class="" href="{{url_for('service')}}"> Services </a>
+            </li>
+            <li class="">
+              <a class="" href="{{url_for('feedback')}}"> Feedback</a>
+            </li>
+            <li class="">
+              <a class="" href="{{url_for('contact')}}">Contact Us</a>
+            </li>
+
+            <li class="">
+              <a class="" href="{{url_for('userpage')}}">top</a>
+            </li>
+
+
+            <li class="">
+              <a class="" href="login.html">Login</a>
+            </li>
+          </ul>
+        </div>
+        
+
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <div class="container">
+      <p>
+        &copy; all rights are reserved by CABIFY
+        <!-- <a href="https://html.design/">all rides reserved by CABIFY</a> -->
+      </p>
+    </div>
+  </section>
+  <!-- footer section -->
+
+  <script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="../static/js/bootstrap.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+
+
+  <!-- owl carousel script -->
+  <script type="text/javascript">
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 20,
+      navText: [],
+      autoplay: true,
+      autoplayHoverPause: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 2
+        },
+        1000: {
+          items: 2
+        }
+      }
+    });
+  </script>
+  <!-- end owl carousel script -->
+
+</body>
+
+</html>

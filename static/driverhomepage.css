@@ -1,0 +1,110 @@
+body{
+    margin: 50;
+    padding: 10;
+    background: url(/static/driver.png);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+    width:  30px;
+    height: 1500px;
+    /* right: calc(80% - 100px);  */
+    right: calc(10% );
+    left: 50%;
+    padding: 45px 20px;
+    top: 10%;  
+}
+/* .checkbox{
+    left: 50%;
+    padding: 45px 20px;
+    top: 10%;  
+}
+
+.h1{
+    text-align: center;
+    position: center;
+    top: 10;
+    left: 15%;
+    color: darkgoldenrod;
+}
+ul{
+    list-style: none;
+    height: 80%;
+    width: 20%;
+    position: absolute;
+    top: 90;
+    left: 10;
+    right: 40;
+    background: crimson;
+    box-shadow: 2px 2px black;
+
+}
+
+ul li{
+    margin: 5px;
+    padding: 5px;
+    margin-top: 75px;
+}
+
+ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 5px;
+
+}
+
+ul li a:hover{
+    background: white;
+    color: blue;
+}
+
+section{
+    height: 100vh;
+    width: 400vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+#section1{
+    background: linear-gradient(-45, white 30%, lightgreen 0% );
+}
+ */
+
+
+ .header{
+padding: 20px 60px;
+position: relative;
+background-color: 000;
+z-index: 1000;
+color: brown;
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+ }
+
+ /* .logo{
+    
+ } */
+
+ .nav_ico{
+    width: 30px;
+
+ }
+ .nav_ico span{
+    width: 30px;
+    display: block;
+    height: 2px;
+    margin: 4px 0;
+ }
+ .nav_ico span:first-child{
+    width: 70%;
+    margin: 0 15%;
+
+ }
+
+ .nav_ico span:last-child{
+    width: 70%;
+    margin: 0 15%;
+ }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admindriverpage</title>
+</head>
+<body>
+    <h1> admin driver page</h1>
+    <table border="2">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>phone</th>
+            <th>password</th>
+        </tr>
+        {% for asma in noor  %}
+        <tr>
+            <td>{{ asma[0] }}</td>
+            <td>{{ asma[1] }}</td>
+            <td>{{ asma[2] }}</td>
+            <td>{{ asma[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+     
+
+
+
+
+
+
+    
+    <a href="/">Driver Signup Page</a>
+    
+</body>
+
+
+
+
+
+
+
+
+
+</html>

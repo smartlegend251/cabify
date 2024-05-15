@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="../static/driversignup.css" type="text/css">
+
+    <title>driversignup</title>
+</head>
+<body>
+    <div class="driversignupbox">
+        <fieldset> 
+        <h1><u>Driver signup</u></h1>
+        <form action="{{url_for('driverregister')}}" method="POST">
+        <input type="text" name="id" hidden readonly>
+        <p>Name:</p>
+        <input type="text" name="name" placeholder="Enter Name" required>
+        <p>phone:</p>
+        <input type="text" name="phone" placeholder="phone no." required>
+        <p>Password:</p>
+        <input type="password" id="password" name="password"  placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+        title="Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, and one number." required>
+        <br><br>
+        <input type="submit" value="Driver Register">
+    </form>
+    <a href="/driverlogin">Already have Account?    </a>
+    <!-- <a href="/admindriverpage"><p>My Enteries</p></a> -->
+</fieldset>
+
+</div>
+
+</body>
+</html>

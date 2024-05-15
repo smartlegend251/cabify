@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="stylesheet" href="/static/css/happyjourney.css"> 
+  <title>paysuccess</title>
+
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="../static/css/responsive.css" rel="stylesheet" />
+
+
+
+  <style>
+    .ride-confirmation {
+      text-align: center;
+      margin-top: 20%;
+    }
+
+    .loading-animation {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #fff;
+      position: relative;
+      animation: bounce 4.5s ease-in-out infinite, colorChange 1.5s linear infinite, stopAnimation 90s linear 1 forwards;
+      margin: 0 auto 20px;
+    }
+
+    .time-line {
+      border-radius: 20px;
+      width: 100%;
+      height: 20px;
+      background-color: rgba(255, 255, 255, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fill-line {
+      width: 0;
+      height: 100%;
+      background-color: #feae00;
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: fillLineAnimation 120.5s ease-in-out  ; 
+    }
+
+
+    @keyframes changeColor {
+  to {
+    background-color: #e74c3c; /* Change color to red */
+    width: 100%; /* Ensure the line is completely filled with red */
+  }
+}
+
+
+    
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-30px);
+      }
+    }
+
+    @keyframes colorChange {
+      0% {
+        background-color: #fff;
+      }
+      25% {
+        background-color: #e74c3c;
+      }
+      50% {
+        background-color: #f39c12;
+      }
+      75% {
+        background-color: #2ecc71;
+      }
+      100% {
+        background-color: #fff;
+      }
+    }
+
+    @keyframes gradientAnimation {
+      0%, 100% {
+        background-position: 0 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    @keyframes fillLineAnimation {
+      0% {
+        width: 0;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+
+    @keyframes stopAnimation {
+      to {
+        animation-play-state: paused;
+      }
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    
+    
+    .body {
+      /* display: flex; */
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(120deg, #f5fd00, #d49500, #ff9900);
+      background-size: 400% 400%;
+      animation: gradientAnimation 20s ease infinite;
+    }
+
+    
+    </style>
+</head>
+
+<body class="sub_page" background="images/paysuccess3.png">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              CABIFY
+            </span>
+          </a>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item ">
+                  <a class="nav-link" href="{{url_for('userpage')}}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="useracc.html"> My booking</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('contact')}}"> Contact us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('feedback')}}"> Feedback</a>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+    <div class="body" class="container" id="body">
+      <div class="heading_container">
+      </div>
+
+
+ 
+      <input type="text" name="status" id="status" oninput="chech()" value="{{status}}" hidden>
+    
+
+
+
+      <div class="active" id="active">    
+      <h1> Happy Journey </h1>
+
+
+
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3414.3983422840083!2d77.58671614508603!3d12.954099214618138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1690050250357!5m2!1sen!2sin" width="1000" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="info-container">
+          <p class="info-item">Distance Traveled: <span id="distance">0 meters</span></p>
+          <p class="info-item">Current Speed: <span id="speed">0 m/s</span></p>
+      </div>
+      <button id="toggleButton" onclick="toggleTracking()">Start Tracking</button>
+      <button onclick="stopTracking()">Stop</button>
+  </div>
+
+
+<div id="wait" >
+
+      <div class="ride-confirmation">
+        <div class="loading-animation"></div>
+        <h2 id="loading-text">Your ride is being confirmed...</h2>
+        <div class="time-line">
+          <div class="fill-line"></div>
+
+          
+<a class="position" href="{{url_for('ridecancleshare' , val= cid)}}">Cancle ride</a>
+        </div>
+
+
+        <script>
+          // Function to change the loading text
+          function changeLoadingText() {
+            const loadingTextElement = document.getElementById('loading-text');
+            const texts = ["Your ride is currently being confirmed....",
+    "We are searching for the best service to suit your needs...",
+    "Almost there! Connecting you with the nearest available driver...",
+    "Please wait, we're trying our best to connect you with a driver...",
+    "We apologize for the delay. It may take a bit longer than usual...",
+    "Unfortunately, there are currently no available cabs nearby. We're still trying..."
+  ];
+            let currentTextIndex = 0;
+        
+            const intervalId = setInterval(() => {
+              loadingTextElement.textContent = texts[currentTextIndex];
+              currentTextIndex++;
+              
+              if (currentTextIndex >= texts.length) {
+                clearInterval(intervalId);
+              }
+            }, 20000); // Change text every 10 seconds
+          }
+        
+          // Start the text changing function
+          changeLoadingText();
+        </script>
+
+
+
+<script>
+
+  
+  var ride= document.getElementById('active')
+  var wait = document.getElementById('wait')
+  var animation = document.getElementById('body')
+  var status = document.getElementById('status').value;
+
+
+  
+if (status ==="accepted"){
+   wait.style.display='none';
+   animation.style.background = 'none';
+   ride.style.display='block';
+}
+let watchId;
+let startPosition;
+let totalDistance = 0;
+let isTracking = false;
+
+function toggleTracking() {
+   if (!isTracking) {
+       startTracking();
+       document.getElementById('toggleButton').innerText = "Pause Tracking";
+   } else {
+       stopTracking();
+       document.getElementById('toggleButton').innerText = "Resume Tracking";
+   }
+   isTracking = !isTracking;
+}
+
+function startTracking() {
+   if ('geolocation' in navigator) {
+       watchId = navigator.geolocation.watchPosition(updatePosition, positionError);
+       startPosition = null;
+       totalDistance = 0;
+   } else {
+       alert('Geolocation is not available in your browser.');
+   }
+}
+
+function stopTracking() {
+   if (watchId) {
+       navigator.geolocation.clearWatch(watchId);
+       watchId = null;
+   }
+   totalDistance = 0;
+   updateDistanceDisplay(totalDistance);
+   updateSpeedDisplay(0);
+   document.getElementById('toggleButton').innerText = "Start Tracking";
+   isTracking = false;
+}
+
+function updatePosition(position) {
+   const { latitude, longitude, speed } = position.coords;
+
+   if (!startPosition) {
+       startPosition = { latitude, longitude };
+   } else {
+       const distance = calculateDistance(startPosition.latitude, startPosition.longitude, latitude, longitude);
+       totalDistance += distance;
+       startPosition = { latitude, longitude };
+   }
+
+   updateDistanceDisplay(totalDistance);
+   updateSpeedDisplay(speed);
+}
+
+function positionError(error) {
+   console.error('Error occurred while tracking:', error.message);
+}
+
+function calculateDistance(lat1, lon1, lat2, lon2) {
+   const R = 6371e3; // Earth's radius in meters
+   const phi1 = (lat1 * Math.PI) / 180;
+   const phi2 = (lat2 * Math.PI) / 180;
+   const deltaPhi = ((lat2 - lat1) * Math.PI) / 180;
+   const deltaLambda = ((lon2 - lon1) * Math.PI) / 180;
+
+   const a = Math.sin(deltaPhi / 2) * Math.sin(deltaPhi / 2) +
+       Math.cos(phi1) * Math.cos(phi2) *
+       Math.sin(deltaLambda / 2) * Math.sin(deltaLambda / 2);
+   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+   return R * c;
+}
+
+function updateDistanceDisplay(distance) {
+   const distanceElement = document.getElementById('distance');
+   distanceElement.textContent = distance.toFixed(2) + ' meters';
+}
+
+function updateSpeedDisplay(speed) {
+   const speedElement = document.getElementById('speed');
+   speedElement.textContent = speed.toFixed(2) + ' m/s';
+}
+  
+</script>
+          
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+          </div>
+        </div>
+                  </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+      
+    </div>
+  </section>
+</body>
+
+</html>

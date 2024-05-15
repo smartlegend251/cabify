@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Account Creation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="loading-container">
+    <div class="loading-message">
+      <span>Your account is being created...</span>
+      <!-- <div class="loading-bounce"></div> -->
+    </div>
+  </div>
+
+  <script>
+    // After 5 seconds, redirect to the second HTML page
+    setTimeout(function() {
+      window.location.href = "{{url_for('driverdashboard')}}";
+    }, 5000);
+  </script>
+</body>
+<style>
+    body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f1f1f1;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.loading-message {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  animation: fadeInOut 5s linear;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.loading-bounce {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #3498db;
+  position: relative;
+  animation: bounce 2s infinite;
+  top: 15px;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    top: 0;
+  }
+  50% {
+    top: -20px;
+  }
+}
+
+</style>
+</html>

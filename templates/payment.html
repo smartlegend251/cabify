@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Methods</title>
+    <style>
+      
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Flex container for the buttons */
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Custom styled radio buttons */
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        .radio-label {
+            display: inline-block;
+            padding: 8px 15px;
+            font-size: 16px;
+            background-color: #f2f2f2;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Change radio button label appearance when selected */
+        input[type="radio"]:checked + .radio-label {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        /* Show the forms below the radio buttons when clicked */
+        #cardForm, #upiForm {
+            display: none;
+            margin-top: 10px;
+        }
+
+        #cardForm.show, #upiForm.show {
+            display: block;
+        }
+
+        /* Form styling */
+        .label {
+            display: inline;
+            font-weight: 500;
+            margin: 70px;
+            background-color: yellow;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .8s;
+            
+
+            /* display: block; */
+            /* margin-bottom: 10px; */
+        }
+
+        .label:hover{
+            background-color: rgb(255, 153, 0);
+        }
+        .label:active{
+            background-color: rgb(252, 152, 3) ;
+        }
+
+        input[type="text"], input[type="number"],input[type='password'],input[type='month'] {
+            width: 200px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+
+            align-items: center;
+            text-align: center;
+
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+        .hidden{
+            align-items: center;
+            text-align: center;
+        }
+        .allign{
+display: block;
+align-items: center;
+text-align: center;
+margin-top: 5px;
+margin-bottom: 20px;
+
+        }
+        /* .span{
+            
+            font-size: xx-large;
+            font-weight: 500;
+            margin: 70px;
+            background-color: yellow;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        } */
+
+        .radio-label {
+            display: inline-block;
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: #f2f2f2;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .center{
+            display: none;
+            position: relative;
+            align-items: center;
+            text-align: center;
+            margin-top: calc(6% - 50px);
+            /* top:60%; */
+
+            /* left:47%; */
+        }
+        fieldset{
+            margin-top: 30px;
+            display: inline-block;
+            border: 2px solid #000000;
+            padding: 20px 100px;
+            border-radius:10px  ;
+            background-color: rgba(160, 160, 160, 0.521);
+        }
+    </style>
+</head>
+<body >
+    <h1>Select Payment Method</h1>
+
+    <h3>Pick UP : {{pickup}} </h3>
+    <h3>Drop Off : {{dropoff}} </h3>
+    <h3>Distance: {{km}} KM </h3>
+    <h3>Car Type : {{cartype    }}</h3>
+    <h3>Price : ₹ {{price}} </h3>
+
+
+    <input type="hidden" name="{{cartype}}" id="cartype">
+    <input type="hidden" name="{{km}}" id="km">
+    <form action="{{url_for('payment')}}"  onsubmit="generateRandomNumber()" method="post">
+
+
+
+
+
+<input type="text" name="price" value="{{price}}" readonly required hidden>
+
+        <div class="allign">
+        
+            <span class="span" for="cash" >
+                <label class="label">
+            <input type="radio" id="cash" name="method" value="cash" onclick="hideall()">
+            <span for="cash"   >Cash</span>
+        </label></span>
+        
+        <!-- <br> -->
+        
+            <span class="span" for="card">
+                <label class="label">
+            <input type="radio" id="card" name="method" value="card" onclick="showCardForm()">
+            <span for="card">Credit/Debit Card</span></label> </span>
+       
+        <!-- <br> -->
+       
+            <span class="span" for="upi">
+                <label class="label">
+            <input type="radio" id="upi" name="method" value="upi" onclick="showUPIForm()">
+           <span for="upi"> UPI</span>
+        </label></span>
+ <input type="text"  id="status" name="status" hidden required>       
+    </div>
+        <!-- <br> -->
+
+        <!-- Credit/Debit Card Form (Hidden by Default) -->
+        <div id="cardForm" class="hidden">
+            <fieldset>
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter card number">
+            <br>
+            <label for="expiryDate">Expiry Date:</label>
+            <input type="month" id="expiryDate" name="expiryDate" min="2023-07" pattern="^(0[1-9]|1[0-2])\/20\d{2}$" placeholder="MM/YYYY">
+            <br>
+            <label for="cvv">CVV:</label>
+            <input type="password" id="cvv" name="cvv" maxlength="3" placeholder="CVV">
+            <br>
+        </fieldset>
+        </div>
+
+        <!-- UPI Form (Hidden by Default) -->
+        <div id="upiForm" class="hidden">
+            <fieldset>
+            <label for="upiId">UPI ID:</label>
+            <input type="text" id="upiId" name="upiId" placeholder="Enter UPI ID">
+            <br>
+        </fieldset>
+        </div>
+
+        <p id="tid"></p>
+<div class="center" id="btn">
+    <input type="text" id="randomNumberInput" name="tid" readonly hidden >
+
+<button type="submit">Continue</button>
+        <!-- <button type="button" onclick="generateRandomNumber()" >Continue</button> -->
+    </div></form>
+    <script>
+        function generateRandomNumber() {
+            const randomNumber = Math.floor(Math.random() * 9000000000000000) + 1000000000000000; // Generate a random 16-digit number
+            const inputElement = document.getElementById('randomNumberInput');
+            inputElement.value = randomNumber;
+        }
+    </script>
+
+
+    
+    <script>
+   
+
+        function hideall(){
+        const cardForm = document.getElementById('cardForm');
+        const upiForm = document.getElementById('upiForm');
+        const cash = document.querySelector('input[value="cash"]:checked');
+        const btn = document.getElementById('btn');
+
+
+        if(cash){
+            cardForm.style.display = 'none';
+            upiForm.style.display = 'none';
+            btn.style.display = 'block'
+            document.getElementById('status').value = 'pending'
+
+            
+
+        }
+else{document.getElementById('status').value = 'pending'}
+    }
+
+    
+        
+        function showCardForm() {
+            const cardForm = document.getElementById('cardForm');
+            const cardPayment = document.querySelector('input[value="card"]:checked');
+            const btn = document.getElementById('btn');
+
+
+            if (cardPayment) {
+                cardForm.style.display = 'block';
+                document.getElementById('status').value = 'successful'
+                btn.style.display = 'block'
+            } else {
+                cardForm.style.display = 'none';
+            }
+
+            // Hide UPI form if Credit/Debit Card form is shown
+            const upiForm = document.getElementById('upiForm');
+            upiForm.style.display = 'none';
+            document.getElementById('status').value = 'successful'
+        }
+
+        function showUPIForm() {
+            const upiForm = document.getElementById('upiForm');
+            const upiPayment = document.querySelector('input[value="upi"]:checked');
+            const btn = document.getElementById('btn');
+
+
+            if (upiPayment) {
+                upiForm.style.display = 'block';
+                document.getElementById('status').value = 'successful'
+                btn.style.display = 'block'
+            } else {
+                upiForm.style.display = 'none';
+            }
+
+            // Hide Credit/Debit Card form if UPI form is shown
+            const cardForm = document.getElementById('cardForm');
+            cardForm.style.display = 'none';
+        }
+</script>
+
+
+</body>
+</html>

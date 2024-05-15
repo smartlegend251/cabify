@@ -1,0 +1,21 @@
+body{
+   margin: 0;
+   padding: 0;
+   background-image:url(/static/driver\(5\).png) ;
+   background-repeat: no-repeat  ;
+   background-size: cover   ;
+   
+    riversignupbox{
+    width:  440px;
+    height: 400px;
+    background: darkgoldenrod;
+    color: black;
+    top: 55%;
+    left: 62%;
+    position: absolute;
+   transform: translate(-40%,-40%);
+    box-sizing: border-box;
+    padding: 40px 65px;
+    opacity: 0.9; 
+
+} 

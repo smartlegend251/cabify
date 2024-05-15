@@ -1,0 +1,292 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+    
+  .menu-toggle {
+    position: fixed;
+    /* border: solid black; */
+    left: 0;
+    top: 100px;
+    align-items: center;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    /* padding: 8px 41px; */
+    /* padding-right: 82.5px ;  */
+    width: 100px;
+    padding: 6px 0px;
+    /* height: 30px; */
+    background-color: rgb(100, 99, 99);
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .topbar {
+    background-color: yellow;
+    color: black;
+    padding-left: 10px;
+    border-color: black;
+    border-bottom: 5px solid black;
+    border-top:  5px solid black;
+    text-align: left ;
+  }
+
+
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    
+  }
+  
+  .sidebar li {
+    padding: 10px;
+    color: #fff;
+    cursor: pointer;
+    
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+
+
+  .sharetaxi{
+    display: none;
+      position: fixed;
+      
+      padding: 40px;
+      margin-left: 250px; /* Adjust this value to match the sidebar width */
+      box-sizing: border-box;
+      border: 5px solid #3a2a2a1e; /* Add border to the content section */
+      /* border-width: 50%; */
+      background-color: #cccc;
+      top: 20%;
+      width: 70%;
+      border-radius: 6px;
+      /* border-style:   ; */
+      height: calc(70vh - 40px); /* Set the height of the content section */
+  
+      overflow-y: auto; /* Add vertical scroll when content overflows */
+    }
+  
+
+    .currentbooking{
+      display: none;
+        position: fixed;
+        
+        padding: 40px;
+        margin-left: 250px; /* Adjust this value to match the sidebar width */
+        box-sizing: border-box;
+        border: 5px solid #3a2a2a1e; /* Add border to the content section */
+        /* border-width: 50%; */
+        background-color: #cccc;
+        top: 20%;
+        width: 70%;
+        border-radius: 6px;
+        /* border-style:   ; */
+        height: calc(70vh - 40px); /* Set the height of the content section */
+    
+        overflow-y: auto; /* Add vertical scroll when content overflows */
+      }
+  
+      
+      .privatedrivers{
+        display: none;
+          position: fixed;
+          
+          padding: 40px;
+          margin-left: 250px; /* Adjust this value to match the sidebar width */
+          box-sizing: border-box;
+          border: 5px solid #3a2a2a1e; /* Add border to the content section */
+          /* border-width: 50%; */
+          background-color: #cccc;
+          top: 20%;
+          width: 70%;
+          border-radius: 6px;
+          /* border-style:   ; */
+          height: calc(70vh - 40px); /* Set the height of the content section */
+      
+          overflow-y: auto; /* Add vertical scroll when content overflows */
+        }.sidebar {
+          position: absolute;
+          left: 0%;
+          top: 16%;
+          height: 82%;
+          width: 100px;
+          /* width: 9.26%; */
+      
+          
+          background-color: rgb(117, 116, 116);
+          border-right: 2px solid black ;
+          transition: left 0.9s ease-in-out;
+          /* margin-right: 30px; */
+          /* margin:  ; */
+        }
+      
+      
+  
+
+
+  .advancebooking{
+    /* display: none;   */
+      position: fixed;
+      
+      padding: 40px;
+      margin-left: 250px; /* Adjust this value to match the sidebar width */
+      box-sizing: border-box;
+      border: 5px solid #3a2a2a1e; /* Add border to the content section */
+      /* border-width: 50%; */
+      background-color: #cccc;
+      top: 20%;
+      width: 70%;
+      border-radius: 6px;
+      /* border-style:   ; */
+      height: calc(70vh - 40px); /* Set the height of the content section */
+  
+      overflow-y: auto; /* Add vertical scroll when content overflows */
+    }
+  
+  
+  
+  .content {
+    position: fixed;
+    
+    padding: 40px;
+    margin-left: 250px; /* Adjust this value to match the sidebar width */
+    box-sizing: border-box;
+    border: 5px solid #3a2a2a1e; /* Add border to the content section */
+    /* border-width: 50%; */
+    background-color: #cccc;
+    top: 20%;
+    width: 70%;
+    border-radius: 6px;
+    /* border-style:   ; */
+    height: calc(70vh - 40px); /* Set the height of the content section */
+
+    overflow-y: auto; /* Add vertical scroll when content overflows */
+  }
+
+  
+
+.message-box {
+  height: calc(100% - 40px); /* Adjust the height as needed */
+  overflow-y: auto; /* Add vertical scroll when content overflows */
+}
+
+.message {
+  padding: 10px;
+  background-color: #f2f2f2;
+  margin-bottom: 10px;
+}
+  
+
+  @media (max-width: 980px ) {
+    body{
+      margin: 0;
+      zoom: 110%;
+      overflow-x: fixed;
+    }
+    .sidebar {
+      top:8%;
+      padding: 0px 40px;
+      font-size: x-large;
+      /* color: blue; */
+      background-color: black;
+  }
+  .menu-toggle {
+    top: 103px;
+    padding: 10px 40px;
+    font-size: x-large;
+  }
+
+  .topbar {
+    background-color: yellow;
+    color: black;
+    padding-left: 0px;
+    border-color: black;
+    border-bottom: 5px solid black;
+    border-top:  5px solid black;
+    text-align: left ;
+    font-size: larger;
+  }
+
+
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar li {
+    
+    font-size: large;
+    padding: 30px 0px; 
+    color: #fff;
+    cursor: pointer;
+    /* margin-bottom: 20px; */
+    font-size: xx-large;
+  }
+  
+
+  .container{
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+h2{
+  margin-bottom: 40px;
+  font-family: sans-serif;
+
+}
+
+
+
+  .switch{
+    position: relative;
+    display: inline-block;
+    width: 110px;
+    height: 60px;
+    margin: 0 10px;
+  }
+  
+  .slider{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+    
+  }
+.switch input {display:none}
+.slider::before{
+  position: absolute;
+  content: "";
+  height: 50px;
+  width: 50px;
+  left: 5px;
+  bottom: 5px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+input:checked + .slider
+
+{
+  background-color: #ff278c;
+}
+input:checked + .slider::before{
+  transform: translateX(50px);
+}
+
+  }
+  

@@ -1,0 +1,16 @@
+body{
+    margin: 0;
+    padding: 50;
+    background: url(/static/driver\(10\).png);
+    background-size: large;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-color: rgb(192, 161, 10); */
+    font-family: sans-serif;
+    width:  280px;
+    /* height: 1400px; */
+    right: 100;
+    left: 50%;
+    padding: 250px 100px;
+    top: 10%;      
+}

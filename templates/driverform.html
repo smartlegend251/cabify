@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="../static/driverform.css" type="text/css">
+    <title>driverform</title>
+</head>
+<body>
+    <div class="driverformbox">
+    <!-- <img src="/static.css/image.png" class="signup"> -->
+   <center><u><h><b>Driver Form</b></h></u></center><br><br>
+   <!-- <img src="/static.css/image.png" class="driversignup"> -->
+
+   enctype="multipart/form-data"
+   <form action="{{url_for('credentials')}}" method="post" enctype="multipart/form-data" >
+    
+    <!-- <input type="text" name="driver_id" hidden readonly> -->
+    <p>Enter Full Name</p>
+    <input type="text" name="name" value="{{name}}" placeholder="Enter Full Name" required>
+    <p>phone</p>
+    <input type="tel" name="phone" value="{{phone}}" id="contact" placeholder="phone no." required>
+    <!-- <input type="tel" name="email/phone" number=maxlenght="10" placeholder="Enter Email/phone no." required> -->
+    <p>Gender</p>
+    <input type="text" name="gender" placeholder="Gender" required>
+    <p>Address</p>
+    <input type="text" name="address" placeholder="Address"vrequired><br><br>
+    <p>Age</p>
+    <input type="number" name="age" placeholder="Age" required><br><br>
+    <p>Experience</p>
+    <input type="number" name="experience" maxlenght="2" placeholder="Experience" required>
+    <p>Driving license</p>
+    <input type="number" name="dl" maxlength="10" placeholder="Driving license" required>
+    <p>Aadhar no.</p>
+    <input type="number" name="aadhar" placeholder="Aadharnumber" required><br><br>
+
+
+
+    <div class="container">
+        <!-- <div id="dropArea"  class="drop-area"> -->
+          <label for="fileInput">Driver Photo</label>
+          
+          <input type="file" id="fileInput" accept="image/*" name="driverphoto" required>
+        </div>
+        <div class="container">
+            <!-- <div id="dropArea"  class="drop-area"> -->
+              <label for="fileInput">Driver Photo</label>
+              
+              <input type="file" id="fileInput" accept="image/*" name="driveraadhar" required>
+            </div>
+            <div class="container">
+                <!-- <div id="dropArea"  class="drop-area"> -->
+                  <label for="fileInput">Driver Photo</label>
+                  
+                  <input type="file" id="fileInput" accept="image/*" name="driverdl" required>
+                </div>
+            
+
+   
+   <input type="submit" value="submit">
+  <script>
+   target.checked = !target.checked;
+</script>
+
+
+
+<script>
+    document.getElementById('contact').addEventListener('input', function() {
+        var input = document.getElementById('contact');
+        var value = input.value;
+        
+        if (value.includes('@')) {
+            input.type = 'email';
+        } else {
+            input.type = 'tel';
+        }
+    });
+</script>
+    <br><br>
+    
+   </form>
+   <!-- <a href="driverlogin.html"><button>submit</button></a> -->
+    <a href="/Driverhomepage"><p>Already Have Account</p></a>
+   </div>
+</body>
+</html>

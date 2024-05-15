@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="../static/main.css" type="text/css">
+    <title>main</title>
+</head>
+<body>
+    <h1><center>Driver Dashboard</center></h1>
+
+
+    <!-- <left> -->
+        <input type="checkbox" name="checkbox" id="check" onclick="enabled()" value="default" ><br>
+       <!-- <input type="radio" name="radio.id" value="default" checked="checked"\> -->
+       <button disabled="true" id="btn">status</button>
+    <!-- </center>  -->
+
+    <!-- <iframe src="https://www.google.com/maps" frameborder=""></iframe> -->
+
+    <script>
+        function enabled(){
+        var check=document.getElementById('check');
+        var btn=document.getElementById('btn');
+        if(check.checked){
+        btn.removeAttribute('disabled');
+        }
+        else{
+        btn.disabled='true';
+        }}
+    </script>
+
+    <!-- <a href="D-userdetails.html" target="D-userdetails">user details</a><br><br>
+    <a href="D-driverdetails.html" target="D-driverdetails">driver details</a><br><br>
+    <a href="D-logout.html" target="D-logout">logout</a><br><br>    -->
+
+</body>
+</html>

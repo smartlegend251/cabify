@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="/static/driverpagelayout.css">
+</head>
+<body class="profile">
+
+
+    <div class="topbar">
+        <h1><i class="fa-solid fa-taxi"></i> CABIFY</h1>
+      </div>
+  <div class="sidebar" id="sidebar">
+    <ul>
+      <br>
+      <a href="/driverhomepage"> <li>Home</li></a>
+      <a href="/driverprofile"><li>Profile</li></a>
+      <a href="/RideHistoryPage"><li>Ride History</li></a>
+      <a href="/userdetails"><li>User Details</li></a>
+      <a href="/driversettings"><li>Settings</li></a>
+      <a href="/driverlogout"><li>Logout</li></a>
+  </ul>
+  </div>
+
+  <!-- <div class="menu-toggle" id="menu-toggle"><p style="padding: 0%;margin: 0%;" > <i class="fa-solid fa-bars"></i> Info</p> </div> -->
+  <div class="menu-toggle" id="menu-toggle"><p style="padding: 0%;margin: 0%;" > <i class="fa-solid fa-bars"></i> Info</p> </div>
+
+    <div class="content">
+
+
+  <div class="menu-toggle" id="menu-toggle">
+    <p style="padding: 0%;margin: 0%;" > 
+      <i class="fa-solid fa-bars">
+
+      </i> Info</p> 
+    </div>
+
+ <div class="contentprofile">
+    {% for x in data %}
+    <div class="position">  
+    <div><span>
+   
+
+      
+
+      
+  <img src="/static/driver(signup).png" width="100px" alt="Driver" >
+        <h1 class="highlight" >{{x[2]}}<br> {{x[3]}} </h1>        
+      </span></div>
+
+
+
+
+   
+      <div id="au">
+        <a href="/driverform">Authorised first</a>
+        </div>
+        
+
+
+<div style="position: fixed; top:30% ; left: 30%; ">
+<!-- Name: {{x[1]}}
+<br>
+Age: 
+<br>
+Phone: {{x[2]}}
+<br>
+Gender:
+<br>
+Experience:
+<br>
+Driving license:
+<br>
+Aadhar no: -->
+
+
+<table>
+  <tr>
+    <th>Full name:</th>
+    <th>{{x[1]}}</th>
+  </tr>
+  
+  <tr>
+    <th>Age:</th>
+    <th>{{x[7]}}</th>
+  </tr>
+  <!-- <tr>
+    <th>Phone:</th>
+    <th>{{x[3]}}</th>
+  </tr> -->
+  <tr>
+    <th>Gender:</th>
+    <th>{{x[5]}}</th>
+  </tr>
+  <tr>
+    <th>Experience:</th>
+    <th>{{x[8]}}</th>
+  </tr>
+  <tr>
+    <th>Driving License:</th>
+    <th>{{x[9]}}</th>
+  </tr>
+  <tr>
+    <th>Aadhar Number:</th>
+    <th>{{x[10]}}</th>
+  </tr>
+  <tr>
+    <th>Address:</th>
+    <th>{{x[6]}}</th>
+  </tr>
+
+</table>
+
+</div>
+
+
+    {% endfor %}
+
+
+    </div>
+<br>
+    <hr>
+
+  </div>
+  
+
+  <script src="/static/js/driverpagelayout.js">
+    
+  </script>
+  <style>
+    .highlight{
+      font-size: 20px;
+    }
+  </style>
+{%for x in data%}
+<input type="text"  id="check" value="{{x[12]}}">
+ {%endfor%}
+
+        
+ <script>
+  const auth =document.getElementById('check').value;
+  const path = document.getElementById('au');
+
+  val = int(auth)
+
+  if (val == 0)
+  {
+    auth.style.display='block';
+  }
+  else{
+    auth.style.display='none';
+  }
+</script>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+    padding: 0;
+    /* background: url(/static/driver\(signup\).png);
+    background-size: small;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: sans-serif; */
+    /* width:  100px; */
+    /* height: 1400px; */
+    /* right: 100; */
+    /* left: 50%; */
+    /* padding: 350px 1000px; */
+    top: 0%;      
+}
+
+
+.position{
+    position: fixed; 
+    top: 10%; 
+    left: 13%;
+}
+
+.highlight{
+    /* font-family: arial; */
+    /* font-size: 20pt; */
+    color: grey;
+    cursor: pointer;
+    /* left: ; */
+}
+
+.highlight:hover{
+    background-color: yellow;
+}
+
+h1{
+    font-family: sans-serif;
+    color: black;
+    text-align: left;
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+h1.hover{
+
+}

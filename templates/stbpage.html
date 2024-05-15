@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>stbpage</title>
+
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="../static/css/responsive.css" rel="stylesheet" />
+</head>
+
+<body class="sub_page" background="images/stb.png">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              CABIFY
+            </span>
+          </a>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item ">
+                  <a class="nav-link" href="{{url_for('userpage')}}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('sharetaxireadmore')}}"> Know More About Shared Taxi Booking</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{url_for('contact')}}">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('feedback')}}">Feedback</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- FEEDBACK section -->
+
+  <section class="contact_section layout_padding">
+    <div class="container">
+      <div class="heading_container" >
+        <!-- <h2>
+          FEEDBACK<br>
+          form
+        </h2> -->
+      </div>
+
+      <style>
+        label{
+          color: white;
+        }
+      </style>
+    </div>
+    <div class="container-fluid">
+      <div class="row" >
+        <div class="col-md-5  offset-md-1" style="margin-left: 480px; margin-top: -100px;" >
+          <div class="contact_form"  >
+            <h4>
+              <center>Shared taxi Booking Form</center>
+            </h4>
+            <div class="form-box" >
+                <!-- <h2>Private Driver Booking</h2> -->
+                <form action="{{url_for('sharetaxi')}}" method="post" onsubmit="generateRandomNumber()">
+                  <input type="text" name="cid" id="cid" hidden>
+                  
+                  <input type="text" name="ctm" id="ctm" hidden>
+                  <script src="/static/js/random.js" ></script>
+                  <label for="customer-name">Name:</label>
+                  <input type="text" id="customer-name" name="cname" required>
+            
+                  <label for="phone-number">Phone number:</label>
+                  <input type="number" id="phone-number" name="phone" required>
+            
+                  <!-- <label for="driver-type">Driver Type:</label>
+                  <select id="driver-type" name="driver-type" required>
+                    <option value="">Select driver type</option>
+                    <option value="standard">Standard</option>
+                    <option value="luxury">Luxury</option>
+                    <option value="executive">Executive</option>
+                  </select> -->
+                  <br>
+
+                 
+            
+                  <label for="pickup-location">Pickup Location:</label>
+                  <input type="text" id="pickup-location" name="pickup" required>
+            
+                  <label for="dropoff-location">Dropoff Location:</label>
+                  <input type="text" id="dropoff-location" name="dropoff" required>
+
+                  <label for="number of passengers">Number of passengers:</label>
+                  <input type="number" id="number of passengers" max="7" name="numberof" required>
+
+                  <label for="driver-type">Car Type: Tata Winger</label>
+                  <select id="driver-type" name="cartype" required hidden>
+                    <option value="">Select the type for sharing a ride. </option>
+                    <!-- <option value="Auto">Auto(3-4 seater)</option> -->
+                    <!-- <option value="Nano">Nano(4 seater car)</option> -->
+                    <option selected value="winger">Tata Winger(15 seater car)</option>
+                                      </select>
+                    <br>
+                    <button type="submit">Book Now</button>
+                  </form>
+                
+              </div>
+          </div>
+        </div>
+                 </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <div class="container">
+      <p>
+        &copy; all rights are reserved by CABIFY
+        <!-- <a href="https://html.design/">Free Html Templates</a> -->
+      </p>
+    </div>
+  </section>
+  <!-- footer section -->
+
+</body>
+
+</html>

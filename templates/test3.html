@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-Time GPS Speedometer</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    #speedometer {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background-color: #f1f1f1;
+      margin: 50px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      color: #333;
+    }
+
+    #buttons-container {
+      margin-top: 20px;
+    }
+
+    .toggle-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    #distance-traveled {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="speedometer">0 km/h</div>
+  <div id="buttons-container">
+    <button id="start" class="toggle-button">Start</button>
+    <button id="pause" class="toggle-button" style="display: none;">Pause</button>
+    <button id="resume" class="toggle-button" style="display: none;">Resume</button>
+    <button id="stop" class="toggle-button">Stop</button>
+  </div>
+  <div id="distance-traveled">Distance Traveled: 0 meters</div>
+
+  <script>
+    let prevPosition;
+    let prevTimestamp;
+    let totalDistance = 0;
+    let intervalId;
+
+    function calculateSpeed(newPosition, timestamp) {
+      if (prevTimestamp) {
+        const deltaTime = (timestamp - prevTimestamp) / 1000; // Convert to seconds
+        const distance = haversineDistance(prevPosition.coords, newPosition.coords);
+        totalDistance += distance;
+        const speed = (distance / deltaTime) * 3.6; // Convert to km/h
+        document.getElementById("speedometer").textContent = speed.toFixed(1) + " km/h";
+        document.getElementById("distance-traveled").textContent =
+          "Distance Traveled: " + totalDistance.toFixed(2) + " meters";
+      }
+      prevPosition = newPosition;
+      prevTimestamp = timestamp;
+    }
+
+    function handleLocationSuccess(position) {
+      calculateSpeed(position, position.timestamp);
+    }
+
+    function handleLocationError(error) {
+      document.getElementById("speedometer").textContent = "Error";
+      document.getElementById("distance-traveled").textContent = "Error accessing GPS data.";
+    }
+
+    function haversineDistance(coords1, coords2) {
+      // Haversine formula to calculate the distance between two coordinates
+      const earthRadius = 6371; // Radius of the Earth in kilometers
+      const latDiff = degToRad(coords2.latitude - coords1.latitude);
+      const lonDiff = degToRad(coords2.longitude - coords1.longitude);
+      const a =
+        Math.sin(latDiff / 2) * Math.sin(latDiff / 2) +
+        Math.cos(degToRad(coords1.latitude)) * Math.cos(degToRad(coords2.latitude)) *
+        Math.sin(lonDiff / 2) * Math.sin(lonDiff / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return earthRadius * c * 1000; // Convert to meters
+    }
+
+    function degToRad(degrees) {
+      return degrees * (Math.PI / 180);
+    }
+
+    function startGPS() {
+      if ("geolocation" in navigator) {
+        navigator.geolocation.watchPosition(handleLocationSuccess, handleLocationError, {
+          enableHighAccuracy: true,
+        });
+      } else {
+        document.getElementById("speedometer").textContent = "Error";
+        document.getElementById("distance-traveled").textContent = "Geolocation is not available in this browser.";
+      }
+    }
+
+    function startSpeedometer() {
+      if (!intervalId) {
+        prevPosition = null;
+        prevTimestamp = null;
+        totalDistance = 0;
+        startGPS();
+        intervalId = setInterval(startGPS, 1000);
+        document.getElementById("start").style.display = "none";
+        document.getElementById("pause").style.display = "inline-block";
+        document.getElementById("resume").style.display = "none";
+      }
+    }
+
+    function pauseSpeedometer() {
+      clearInterval(intervalId);
+      intervalId = null;
+      document.getElementById("pause").style.display = "none";
+      document.getElementById("resume").style.display = "inline-block";
+    }
+
+    function resumeSpeedometer() {
+      if (!intervalId) {
+        intervalId = setInterval(startGPS, 1000);
+        document.getElementById("pause").style.display = "inline-block";
+        document.getElementById("resume").style.display = "none";
+      }
+    }
+
+    function stopSpeedometer() {
+      clearInterval(intervalId);
+      intervalId = null;
+      document.getElementById("start").style.display = "inline-block";
+      document.getElementById("pause").style.display = "none";
+      document.getElementById("resume").style.display = "none";
+      document.getElementById("speedometer").textContent = "0 km/h";
+      document.getElementById("distance-traveled").textContent = "Distance Traveled: 0 meters";
+    }
+
+    document.getElementById("start").addEventListener("click", startSpeedometer);
+    document.getElementById("pause").addEventListener("click", pauseSpeedometer);
+    document.getElementById("resume").addEventListener("click", resumeSpeedometer);
+    document.getElementById("stop").addEventListener("click", stopSpeedometer);
+  
+  </script>
+</body>
+</html>

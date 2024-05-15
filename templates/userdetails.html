@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet"  href="../static/userdetails.css" type="text/css"> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="/static/driverpagelayout.css">
+  <link rel="stylesheet" href="/static/css/sidenav.css  ">
+
+    <title> Services</title>
+    <script>
+      function advance() {
+        var div1 = document.getElementById('div1');
+        var div2 = document.getElementById('div2');
+        var div3 = document.getElementById('div3');
+        var div4 = document.getElementById('div4');
+        
+        if (div1.style.display === 'none') {
+          div1.style.display = 'block';
+          div2.style.display = 'none';
+          div3.style.display = 'none';
+          div4.style.display = 'none';
+
+
+        } else {
+          div1.style.display = 'none';
+            
+        }
+      }
+
+
+      function current() {
+        var div1 = document.getElementById('div1');
+        var div2 = document.getElementById('div2');
+        var div3 = document.getElementById('div3');
+        var div4 = document.getElementById('div4');
+        
+        if (div2.style.display === 'none') {
+          div1.style.display = 'none';
+          div2.style.display = 'block';
+          div3.style.display = 'none';
+          div4.style.display = 'none';
+
+
+        } else {
+          div2.style.display = 'none';
+            
+        }
+      }
+
+      function sharetaxi() {
+        var div1 = document.getElementById('div1');
+        var div2 = document.getElementById('div2');
+        var div3 = document.getElementById('div3');
+        var div4 = document.getElementById('div4');
+        
+        if (div3.style.display === 'none') {
+          div1.style.display = 'none';
+          div2.style.display = 'none';
+          div3.style.display = 'block';
+          div4.style.display = 'none';
+
+
+        } else {
+          div3.style.display = 'none';
+            
+        }
+      }
+
+      function privatedrivers() {
+        var div1 = document.getElementById('div1');
+        var div2 = document.getElementById('div2');
+        var div3 = document.getElementById('div3');
+        var div4 = document.getElementById('div4');
+        
+        if (div4.style.display === 'none') {
+          div1.style.display = 'none';
+          div2.style.display = 'none';
+          div3.style.display = 'none';
+          div4.style.display = 'block';
+
+
+        } else {
+          div4.style.display = 'none';
+            
+        }
+      }
+    </script>
+</head>
+<body class="userdetails" bgcolor="lightgrey">
+<!-- <h1>Rides History</h1>  -->
+
+
+
+<div class="topbar">
+    <h1><i class="fa-solid fa-taxi"></i> CABIFY</h1>
+  </div>
+<div class="sidebar" id="sidebar">
+<ul>
+  <br>
+  <a href="/driverhomepage"> <li>Home</li></a>
+  <a href="/driverprofile"><li>Profile</li></a>
+  <a href="/RideHistoryPage"><li>Ride History</li></a>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle">User Details</a>
+    <ul class="dropdown-menu" style="margin-top: -23px; background-color: rgba(16, 15, 15, 0.172);">
+      <li style="color: black;" onclick="advance()">Advance Bookings</li>
+      <li style="color: black;" onclick="current()">Current Bookings</li>
+      <li style="color: black;" onclick="sharetaxi()">Share Taxi</li>
+      <li style="color: black;" onclick="privatedrivers()">Private Driver</li>
+      
+      <!-- <li><button></button></li> -->
+    </ul>
+  </li>
+
+  <a href="/driversettings"><li>Settings</li></a>
+  <a href="/driverlogout"><li>Logout</li></a>
+  <!-- <button onclick="toggleDivs()">Toggle</button> -->
+</ul>
+</div>
+<div class="toggle-btn" onclick="toggleButton(this)"></div>
+
+    <div class="menu-toggle" id="menu-toggle"><p style="padding: 0%;margin: 0%;" > <i class="fa-solid fa-bars"></i> Info</p> </div>
+    <div class="content1 ">
+
+
+      
+
+      <div class="advancebooking" id="div1" >
+<table border="2">
+     
+</div><h1>Advance Bookings</h1>
+
+    <tr>
+        <th>id</th>
+        <th>User Name</th>
+        <th>Phone no.</th>
+        <th>pickup address</address></th>
+        <th>drop off address</th>
+        <th>Date</th>
+        <th>time</th>
+        <th>type of cab</th>
+        <th>payment method</th>
+        <th>status</th>
+        <th>Feedback</th>
+
+    </tr>
+    
+</table>
+</div>
+<br>
+
+<div class="currentbooking" id="div2" >
+  <table border="2">
+       
+  </div><h1>Current Bookings</h1>
+  
+      <tr>
+          <th>id</th>
+          <th>User Name</th>
+          <th>Phone no.</th>
+          <!-- <th>pickup address</address></th> -->
+          <!-- <th>drop off address</th> -->
+          <th>Date</th>
+          <th>time</th>
+          <!-- <th>type of cab</th> -->
+          <!-- <th>payment method</th> -->
+          <th>status</th>
+          <th>Feedback</th>
+  
+      </tr>
+      
+  </table>
+  </div>
+  <br>
+
+
+  <div class="sharetaxi" id="div3" >
+<table border="2">
+ 
+</div><h1>Share Taxi</h1>
+
+<tr>
+    <th>id</th>
+    <th>User Name</th>
+    <th>Phone no.</th>
+    <th>pickup address</address></th>
+    <th>drop off address</th>
+    <th>Date</th>
+    <th>time</th>
+    <th>type of cab</th>
+    <th>payment method</th>
+    <th>status</th>
+    <th>Feedback</th>
+
+</tr>
+
+</table>
+</div>
+<br>
+
+<div class="privatedrivers" id="div4" >
+<table border="2">
+   
+<h1>Private Drivers</h1>
+    <tr>
+        <th>id</th>
+        <th>User Name</th>
+        <th>Phone no.</th>
+        <th>pickup address</address></th>
+        <th>drop off address</th>
+        <th>Date</th>
+        <th>time</th>
+        <th>type of cab</th>
+        <th>payment method</th>
+        <th>status</th>
+        <th>Feedback</th>
+
+    </tr>
+    
+</table>
+</div>
+
+
+
+  </div>
+</div>
+
+
+
+
+</body>
+</html>

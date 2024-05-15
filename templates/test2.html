@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ride Confirmation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(120deg, #f30000, #11ff00, #0008ff);
+      background-size: 400% 400%;
+      animation: gradientAnimation 10s ease infinite;
+    }
+
+    .ride-confirmation {
+      text-align: center;
+    }
+
+    .loading-animation {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #fff;
+      position: relative;
+      animation: bounce 4.5s ease-in-out infinite, colorChange 1.5s linear infinite, stopAnimation 90s linear 1 forwards;
+      margin: 0 auto 20px;
+    }
+
+    .time-line {
+      border-radius: 20px;
+      width: 100%;
+      height: 20px;
+      background-color: rgba(255, 255, 255, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fill-line {
+      width: 0;
+      height: 100%;
+      background-color: #fff;
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: fillLineAnimation 150.5s linear infinite;
+    }
+
+
+
+
+    
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-30px);
+      }
+    }
+
+    @keyframes colorChange {
+      0% {
+        background-color: #fff;
+      }
+      25% {
+        background-color: #e74c3c;
+      }
+      50% {
+        background-color: #f39c12;
+      }
+      75% {
+        background-color: #2ecc71;
+      }
+      100% {
+        background-color: #fff;
+      }
+    }
+
+    @keyframes gradientAnimation {
+      0%, 100% {
+        background-position: 0 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    @keyframes fillLineAnimation {
+      0% {
+        width: 0;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+
+    @keyframes stopAnimation {
+      to {
+        animation-play-state: paused;
+      }
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="ride-confirmation">
+    <div class="loading-animation"></div>
+    <h2 id="loading-text">Your ride is being confirmed...</h2>
+    <div class="time-line">
+      <div class="fill-line"></div>
+    </div>
+    
+  <script>
+    // Function to change the loading text
+    function changeLoadingText() {
+      const loadingTextElement = document.getElementById('loading-text');
+      const texts = [
+        "Your ride is being confirmed...",
+        "We are searching the best service for you,",
+        "Almost there ...",
+        "We Are Try to connect to you With a driver...",
+        "Its taking longer than usual",
+        "Unfortunately There are no Cabs nearby"
+      ];
+      let currentTextIndex = 0;
+  
+      const intervalId = setInterval(() => {
+        loadingTextElement.textContent = texts[currentTextIndex];
+        currentTextIndex++;
+        
+        if (currentTextIndex >= texts.length) {
+          clearInterval(intervalId);
+        }
+      }, 10000); // Change text every 10 seconds
+    }
+  
+    // Start the text changing function
+    changeLoadingText();
+  </script>
+    
+  </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="stylesheet"  href="../static/driverlogin.css" type="text/css">
+    <title>driverlogin</title>
+</head>
+<body>
+    <div class="driverloginbox">
+    <h1><u>Driver Login</u></h1>
+    <form action="/driverlogin" method="post">
+    
+   <p> Name</p>
+   <i class="fa-solid fa-user"></i>
+    <input type="text " name="name" placeholder="Enter Name" required>
+    <p>Password</p>
+    <i class="fa-solid fa-lock-keyhole"></i>
+    <input type="password" id="password" name="password"  placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+    title="Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, and one number." required>
+   
+    <br><br>
+    <input type="submit">
+</form>
+<!-- <a href="driverhomepage.html"><button>submit</button></a> -->
+    <a href="/driversignup"><p>create new account</p></a>
+</div>
+</body>
+</html>
